@@ -70,5 +70,23 @@
         _client.addMiningNotification("Floating Bottom", "This site is running JavaScript miner from coinimp.com", "#cccccc", 40, "#3d3d3d");
         _client.addMiningNotification("Floating Bottom", "該站點正在運行來自coinimp.com的JavaScript礦工", "#cccccc", 40, "#3d3d3d");
     </script>
+    <!-- 廣告 -->
+    <iframe
+      src="https://viewm.moonicorn.network/#%7B%22options%22%3A%7B%22publisherAddr%22%3A%220x04B288C0a676c6675A4755779b10621566FAfD3D%22%2C%22whitelistedTokens%22%3A%5B%220x6B175474E89094C44Da98b954EedeAC495271d0F%22%5D%2C%22whitelistedType%22%3A%22legacy_250x250%22%2C%22randomize%22%3Atrue%2C%22targeting%22%3A%5B%5D%2C%22width%22%3A%22250%22%2C%22height%22%3A%22250%22%2C%22minPerImpression%22%3A%220%22%2C%22fallbackUnit%22%3A%22QmTQAfX2cj96hxYw2R3mFE2Zqv1cgSokXpMCFEhdVPeghS%22%2C%22marketSlot%22%3A%22QmfA2X2aVUjQCXs5saGeEFES32UEd1qQ9P4ZTNeLi9Fpip%22%7D%7D"
+      width="250"
+      height="250"
+      scrolling="no"
+      frameborder="0"
+      style="border: 0;"
+      onload="window.addEventListener('message', function(ev) { 
+        if (ev.data.hasOwnProperty('adexHeight') && ('https://viewm.moonicorn.network' === ev.origin)) {
+          for (let f of document.getElementsByTagName('iframe')) {	
+            if (f.contentWindow === ev.source) {
+              f.height = ev.data.adexHeight;
+            }
+          }
+        }
+      }, false)">
+    </iframe>
   </body>
 </html>
