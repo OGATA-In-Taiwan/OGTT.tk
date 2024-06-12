@@ -1,4 +1,9 @@
 {
-    "zhu712ge": "https://example.com",
-    "otherParam": "https://example.org"
+  "zhu712ge": {
+    "url": "https://webetextbook.knsh.com.tw/2/index.html?code_degree=2",
+    "localStorage": {
+      "loginAccount": "mockAccount",
+      "uuid": "mockUUID"
+    }
+  }
 }
