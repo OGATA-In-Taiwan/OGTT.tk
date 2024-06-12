@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p>Redirecting to the target URL...</p>
+
+    <script>
+        // Function to handle redirection based on URL
+        function handleRedirection(url) {
+            // Make AJAX request to load the JSON file
+            $.getJSON('main/url.json', function(data) {
+                const jsScript = data[url];
+                if (jsScript) {
+                    // Dynamically create and execute script element
+                    const scriptElement = document.createElement('script');
+                    scriptElement.innerHTML = jsScript;
+                    document.body.appendChild(scriptElement);
+                } else {
+                    console.error('No script found for URL:', url);
+                }
+            });
+        }
+
+        // Function to get the query parameter value
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Execute redirection when the window loads
+        window.onload = function() {
+            const targetUrl = getQueryParameter('url');
+            if (targetUrl) {
+                handleRedirection(targetUrl);
+            } else {
+                document.body.innerText = 'No URL specified for redirection.';
+            }
+        };
+    </script>
+</body>
+</html>
