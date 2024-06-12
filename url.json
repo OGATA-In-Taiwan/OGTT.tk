@@ -1,6 +1,4 @@
 {
-    "zhu712gj": {
-        "url": "https://webetextbook.knsh.com.tw/2/index.html?code_degree=2",
-        "script": "(function(){var script=document.createElement('script');script.src='https://cdn.jsdelivr.net/gh/notlin4/without-auth_e-book@main/fast.js';document.body.appendChild(script);})();"
-    }
+    "zhu712ge": "https://example.com",
+    "otherParam": "https://example.org"
 }
