@@ -1,0 +1,6 @@
+{
+    "zhu712gi": {
+        "url": "https://ogtt.tk/redirect-page",
+        "script": "(function(){console.log('Executing script before redirecting to ID page');})();"
+    }
+}
