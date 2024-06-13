@@ -9,6 +9,12 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+// 显示提示信息
+function showMessage() {
+  var overlay = document.getElementById('overlay');
+  overlay.style.display = 'block';
+}
+
 // 根据id从id.json中查找对应的网址并跳转
 function redirectToURLFromId() {
   var id = getParameterByName('id');
@@ -19,7 +25,7 @@ function redirectToURLFromId() {
         if (data[id]) {
           window.location.href = data[id];
         } else {
-          window.location.href = 'https://www.ogtt.tk/';
+          window.location.href = 'default.html';
         }
       })
       .catch(error => {
@@ -36,12 +42,13 @@ function redirectToURLFromUrl() {
       .then(response => response.json())
       .then(data => {
         if (data[urlParam]) {
-          // 等待5秒后再跳
+          showMessage();
+          // 等待5秒后再跳转
           setTimeout(() => {
             window.location.href = data[urlParam];
           }, 5000);
         } else {
-          window.location.href = 'https://www.ogtt.tk/';
+          window.location.href = 'default.html';
         }
       })
       .catch(error => {
@@ -52,6 +59,12 @@ function redirectToURLFromUrl() {
 
 // 页面加载完毕后立即执行跳转逻辑
 window.onload = function() {
-  redirectToURLFromId();
-  redirectToURLFromUrl();
+  var idParam = getParameterByName('id');
+  var urlParam = getParameterByName('url');
+
+  if (idParam) {
+    redirectToURLFromId();
+  } else if (urlParam) {
+    redirectToURLFromUrl();
+  }
 };
