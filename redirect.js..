@@ -15,7 +15,9 @@ function redirectToURLFromId() {
       .then(response => response.json())
       .then(data => {
         if (data[id]) {
-          window.location.href = data[id];
+          setTimeout(() => {
+            window.location.href = data[id];
+          }, 5000);
         } else {
           window.location.href = 'https://www.ogtt.tk/';
         }
