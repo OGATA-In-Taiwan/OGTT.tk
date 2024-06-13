@@ -36,7 +36,7 @@ function redirectToURLFromUrl() {
       .then(response => response.json())
       .then(data => {
         if (data[urlParam]) {
-          // 等待5秒后再跳转
+          // 等待5秒后再跳
           setTimeout(() => {
             window.location.href = data[urlParam];
           }, 5000);
