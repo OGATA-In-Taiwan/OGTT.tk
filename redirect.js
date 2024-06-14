@@ -9,10 +9,21 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-// 显示提示信息
+// 显示提示信息并倒数
 function showMessage() {
   var overlay = document.getElementById('overlay');
+  var countdown = document.getElementById('countdown');
   overlay.style.display = 'block';
+  var seconds = 5;
+  
+  // 每秒更新倒数计时器
+  var interval = setInterval(() => {
+    seconds--;
+    countdown.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(interval);
+    }
+  }, 1000);
 }
 
 // 根据id从id.json中查找对应的网址并跳转
@@ -25,7 +36,7 @@ function redirectToURLFromId() {
         if (data[id]) {
           window.location.href = data[id];
         } else {
-          window.location.href = 'default.html';
+          window.location.href = 'https://ogtt.tk/';
         }
       })
       .catch(error => {
@@ -48,7 +59,7 @@ function redirectToURLFromUrl() {
             window.location.href = data[urlParam];
           }, 5000);
         } else {
-          window.location.href = 'default.html';
+          window.location.href = 'https://ogtt.tk/';
         }
       })
       .catch(error => {
