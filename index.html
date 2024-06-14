@@ -1,10 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-  <meta charset="UTF-8">
+<html lang="zh-Hant">
   <head>
-    <link href="img/favicon.png" rel="shortcut icon"/>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/favicon.png" rel="shortcut icon"/>
     <title>OGTT.tk</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="redirect.js"></script>
+    <style>
+      #overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+      }
+  
+      #message-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Menu -->
+    <div class="navbar">
+        <img src="your-logo-url-here" alt="Logo" class="logo">
+        <ul class="nav-menu">
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">分類</a>
+                <ul>
+                    <li><a href="#">分類一</a></li>
+                    <li><a href="#">分類二</a></li>
+                </ul>
+            </li>
+            <li><a href="#">關於我</a></li>
+            <li><a href="#">聯絡我</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="搜尋...">
+        </div>
+    </div>
+    <!-- Container -->
+    <div class="container">
+        <div class="sidebar" id="author-info">
+            <h2>作者介紹</h2>
+            <p>這裡是作者介紹欄位的內容。</p>
+        </div>
+
+        <div class="main-content" id="main-content">
+        </div>
+
+        <div class="extra-content" id="extra-content">
+            <h2>特殊功能</h2>
+            <p>這裡是特殊功能欄位的內容。</p>
+        </div>
+    </div>
+    <!-- Redirect -->
+    <div id="overlay">
+      <div id="message-box">
+        請等待 <span id="countdown">5</span> 秒...
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
+
     <script src="redirect.js"></script>
     <style>
       #overlay {
