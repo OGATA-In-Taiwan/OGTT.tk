@@ -12,12 +12,12 @@ document.addEventListener('scroll', function() {
 function createArticlePreview(article) {
     const articleDiv = document.createElement('div');
     articleDiv.classList.add('article-preview');
-    fetch(`${article.code}.json`)
+    fetch(`articles/json/${article.code}.json`)
         .then(response => response.json())
         .then(data => {
             const previewContent = data.content.slice(0, 100) + '...';
             articleDiv.innerHTML = `
-                <h2><a href="ogtt.tk/article/${article.year}/${article.month}/${article.code}">${article.title}</a></h2>
+                <h2><a href="articles/${article.year}/${article.month}/${article.code}.html">${article.title}</a></h2>
                 <p>${previewContent}</p>
                 <small>${data.author} - ${data.last_updated}</small>
             `;
@@ -34,6 +34,11 @@ function loadArticles() {
                 mainContent.appendChild(createArticlePreview(article));
             });
         });
+}
+
+// 隱藏首頁作者介紹欄位
+if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+    document.getElementById('author-info').style.display = 'none';
 }
 
 // 調用首頁加載文章函數

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../img/favicon.png" rel="shortcut icon"/>
+    <title>OGTT.tk</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <script src="../../scripts.js"></script>
+</head>
+<body>
+    <!-- Menu -->
+    <div class="navbar">
+        <img src="../../img/favicon.png" alt="Logo" class="logo">
+        <ul class="nav-menu">
+            <li><a href="../../index.html">首頁</a></li>
+            <li><a href="#">分類</a>
+                <ul>
+                    <li><a href="#">分類一</a></li>
+                    <li><a href="#">分類二</a></li>
+                </ul>
+            </li>
+            <li><a href="#">關於我</a></li>
+            <li><a href="#">聯絡我</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="搜尋...">
+        </div>
+    </div>
+    <!-- Container -->
+    <div class="container">
+        <div class="sidebar" id="author-info">
+            <h2>作者介紹</h2>
+            <p>這裡是作者介紹欄位的內容。</p>
+            <p>© <span id="current-year"></span> OGATA Inc.</p>
+        </div>
+
+        <div class="main-content" id="main-content"></div>
+
+        <div class="extra-content" id="extra-content">
+            <h2>特殊功能</h2>
+            <p>這裡是特殊功能欄位的內容。</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        function loadArticleContent() {
+            fetch('../json/123456.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('main-content').innerHTML = `
+                        <h1>${data.title}</h1>
+                        <small>${data.author} - ${data.last_updated}</small>
+                        <p>${data.content}</p>
+                    `;
+                });
+        }
+
+        loadArticleContent();
+    </script>
+</body>
+</html>

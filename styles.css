@@ -72,6 +72,7 @@ body {
 
 .search-bar {
     padding: 10px;
+    margin-right: 20px; /* 遠離畫面邊緣 */
 }
 
 .container {
