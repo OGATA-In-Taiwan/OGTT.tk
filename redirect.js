@@ -30,7 +30,7 @@ function showMessage() {
 function redirectToURLFromId() {
   var id = getParameterByName('id');
   if (id) {
-    fetch('id.json')
+    fetch('redirect/id.json')
       .then(response => response.json())
       .then(data => {
         if (data[id]) {
@@ -49,7 +49,7 @@ function redirectToURLFromId() {
 function redirectToURLFromUrl() {
   var urlParam = getParameterByName('url');
   if (urlParam) {
-    fetch('url.json')
+    fetch('redirect/url.json')
       .then(response => response.json())
       .then(data => {
         if (data[urlParam]) {
