@@ -1,0 +1,18 @@
+{
+    "articles": [
+        {
+            "title": "文章一",
+            "author": "作者甲",
+            "code": "123456",
+            "year": 2024,
+            "month": 6
+        },
+        {
+            "title": "文章二",
+            "author": "作者乙",
+            "code": "789012",
+            "year": 2024,
+            "month": 6
+        }
+    ]
+}
