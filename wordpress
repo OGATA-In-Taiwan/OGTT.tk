@@ -1,0 +1,2 @@
+<!--COPYRIGHT-->
+<div style="text-align: center;">© <span id="year"></span> OGATA Inc. All rights reserved.</div><script>document.getElementById('year').textContent = new Date().getFullYear();</script>
